@@ -18,3 +18,9 @@ Every user has different permissions to access to the portal. Administrator is u
 * Visual Studio Code
 * MongoDB Compass
 
+## Features
+* User can create a user profile that is easy to manage, and that can load fast even in low-bandwidth conditions. 
+* Admin can watch all the user and their details.
+* Admin can assign the department for the user and help the user to gamer accordingly. 
+* Admin can give the access to user to become an elevated access user or the host. 
+* Hosts can host a particular game with a group of gamers. 
