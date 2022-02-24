@@ -23,4 +23,4 @@ Every user has different permissions to access to the portal. Administrator is u
 * Admin can watch all the user and their details.
 * Admin can assign the department for the user and help the user to gamer accordingly. 
 * Admin can give the access to user to become an elevated access user or the host. 
-* Hosts can host a particular game with a group of gamers. 
+* Hosts can host a particular game with a group of gamers.
