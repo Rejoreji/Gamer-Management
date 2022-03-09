@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="access.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Request</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <ul>
+                <li><a href="#">Welcome</a></li>
+                <li><a href="#">MyProfile </a></li>
+                <li><a href="#">User</a></li>
+                <li class="selected"><a href="#">Access Requests</a></li>
+            </ul> 
+        </nav>
+        <div class="main">
+            <header>
+                <h1>Gamer Management</h1>
+            </header>
+            <a href="#" class="logout"><button>logout</button></a> 
+            <div class="access">
+                <h2>
+                    Access Request
+                </h2>
+            </div>
+            
+            <div class="dropdown">
+                    <select name="Department" id="department">
+                        <option value="all">all</option>
+                        <option value="real">Real Time Strategy</option>
+                        <option value="board">Board Games</option>
+                        <option value="card">Card Games</option>
+                    </select>
+                    <div class="searchbar">
+                        <input type="text" name="search" id="search">
+                        <button>Search</button>
+                    </div>
+                         <div class="button_dropdown">
+                            <button>Approve</button>
+                            <button>Decline</button>
+                        </div>
+            </div>    
+            
+            <table>
+                <tr>
+                    <th><input type="checkbox" name="" id=""></th>
+                    <th>Request ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Department</th>
+                    <th>Request Status</th>
+                </tr>
+                <tr>
+                    <td> <input type="checkbox" name="" id=""> </td>
+                    <td>R001</td>
+                    <td>Mike</td>
+                    <td>Jones</td>
+                    <td>Real-Time Strategy</td>
+                    <td>Active</td>
+                </tr>
+                <tr>
+                    <td> <input type="checkbox" name="" id=""> </td>
+                    <td>R002</td>
+                    <td>Alysso</td>
+                    <td>Drake</td>
+                    <td>Board Games</td>
+                    <td>Approved</td>
+                </tr>
+                <tr>
+                    <td> <input type="checkbox" name="" id=""> </td>
+                    <td>R003</td>
+                    <td>Krish</td>
+                    <td>Raj</td>
+                    <td>Card Games</td>
+                    <td>Declined</td>
+                </tr>
+                <tr>
+                    <td> <input type="checkbox" name="" id=""> </td>
+                    <td>R004</td>
+                    <td>Mike</td>
+                    <td>Jones</td>
+                    <td>Real-Time Strategy</td>
+                    <td>Active</td>
+                </tr>
+              </table>
+            
+       </div>
+            
+        
+    </div>
+    
+</body>
+</html>
