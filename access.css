@@ -109,6 +109,7 @@ table {
   
   th{
       background-color: rgb(190, 190, 190);
+      font-weight: bold;
   }
 
   tr:nth-child(even) {
@@ -117,7 +118,8 @@ table {
 
 input[type=text]{
     height: 30px;
-    border-radius: 10px;
+    border-radius: 30px;
+    width: 200px;
 }
  button{
     width: 100px;
