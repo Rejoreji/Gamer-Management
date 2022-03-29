@@ -20,6 +20,13 @@ exports.edit_user = (req,res)=>{
     res.render('edit_user');
 }
 
+//login function 
+exports.login = (req,res)=>{
+  
+    res.render('login');
+}
+
+
 exports.userAdmin = (req,res)=>{
 
     axios.get('http://localhost:3000/api/users')
@@ -42,4 +49,27 @@ exports.access_user= (req,res)=>{
     .catch(err=>{
         res.send(err);
     })
+}
+
+
+
+//login function
+ exports.login = async(req,res)=>{
+
+    
+  
+    try{
+        axios.get('http://localhost:3000/api/users')
+        const email = "sample2@gmail.com";
+        //const password = req.body.password;
+
+        const useremail= await users.findOne({email});
+        res.send(useremail);
+        console.log(useremail);
+    
+
+    } catch(error){
+        res.status(400).send("Invalid Email")
+
+    }
 }

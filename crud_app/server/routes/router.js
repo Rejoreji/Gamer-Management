@@ -17,6 +17,12 @@ route.get('/add_user',services.add_user)
 
 route.get('/edit_user',services.edit_user)
 
+
+//login function
+route.get('/login',services.login)
+
+route.post('/login',services.login)
+
 //API
 route.post('/api/users',controller.create);
 route.get('/api/users',controller.find);

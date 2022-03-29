@@ -7,12 +7,12 @@
 
      <h1>GAMER MANAGEMENT</h1>
      <a href='welcome_admin.ejs' style="margin-left: 90em; margin-top: 10px;"><button>Log Out</button></a><br><br>
-     <form method="post">
+     <form  action="/api/users" method="POST" id="add_user">
 
          <div class="container">
              <h2>ADD USER</h2>
              <label><b>Email Address</b></label>
-             <input type="email" placeholder="Email Address" name="mail" required><br>
+             <input type="email" placeholder="Email Address" name="email" required><br>
 
              <label><b>Password</b></label>
              <input type="password" placeholder="Password" name="psw" required><br>
@@ -27,17 +27,17 @@
              <input type="date" placeholder="date of birth" name="dob" required><br>
 
              <label><b>Access Type</b></label>
-             <select style="width:392px; height: 1.1cm;">
+             <select style="width:392px; height: 1.1cm;" name="access_type">
                  <option>Gamer</option>
                  <option>Host</option>
                  <option>Administrator</option>
              </select><br>
 
              <label><b>Phone Number</b></label>
-             <input type="text" placeholder="Phone Number" name="phn" required><br>
+             <input type="text" placeholder="Phone Number" name="phone" required><br>
 
              <label><b>Department</b></label>
-             <select style="width:392px; height: 1.1cm;">
+             <select style="width:392px; height: 1.1cm;" name="department">
                  <option>Real-Time Strategy</option>
                  <option>Board Games</option>
                  <option>Card Games</option>
@@ -45,7 +45,7 @@
 
 
              <label><b>Address</b></label>
-             <input type="text" placeholder="Address" name="add" required><br>
+             <input type="text" placeholder="Address" name="address" required><br>
 
          </div>
 

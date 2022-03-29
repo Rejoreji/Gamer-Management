@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const bodyparser = require("body-parser");
 const path = require("path");
+const session = require("express-session");
 
 const connectDB=require('./server/database/connection');
 const { connect } = require('http2');
@@ -16,7 +17,15 @@ app.use(morgan('tiny'));
 
 connectDB();
 
+app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({extended:true}))
+
+//New things added for login
+app.use(session({
+    secret:'secret',
+    resave:false,
+    saveUninitialized:true
+}))
 
 app.set("view engine","ejs")
 
