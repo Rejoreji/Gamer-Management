@@ -18,10 +18,10 @@ exports.create=(req,res)=>{
         first_name : req.body.fname,
         last_name: req.body.lname,
         DOB : req.body.dob,
-        access_type: "Gamer",
-        department:"Not Assigned",
-        phone_number:"",
-        address:""
+        access_type: req.body.access_type || "Gamer",
+        department:req.body.department || "NOT ASSIGNED",
+        phone_number:req.body.phone || "NOT GIVEN",
+        address:req.body.address || "NOT GIVEN"
     })
 
     // save user in the database
@@ -29,7 +29,7 @@ exports.create=(req,res)=>{
         .save(user)
         .then(data => {
             //res.send(data)
-            res.redirect('/welcome_admin');
+            res.redirect('/welcome_admin'); //change after 
         })
         .catch(err =>{
             res.status(500).send({
