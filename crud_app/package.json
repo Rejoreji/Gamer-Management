@@ -1,27 +1,30 @@
 {
-  "name": "crud_app",
+  "name": "gamermanagement",
   "version": "1.0.0",
-  "description": "Gamer Management",
-  "main": "server.js",
+  "description": "crud app",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon app.js"
   },
   "keywords": [
-    "gamer",
-    "management"
+    "crud"
   ],
-  "author": "Rejo",
+  "author": "rejo",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.1",
-    "body-parser": "^1.19.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "connect-mongodb-session": "^3.1.1",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
+    "express-async-errors": "^3.1.1",
     "express-session": "^1.17.2",
-    "mongoose": "^6.2.6",
+    "mongoose": "^6.2.10",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "yup": "^0.32.11"
   }
 }

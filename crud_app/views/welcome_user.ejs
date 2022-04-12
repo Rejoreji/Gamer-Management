@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/welcome.css" />
+    <title>Regular Access User</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav>
+        <ul>
+            <li class="selected"><a href="/welcome">Welcome</a></li>
+            <li><a href="/user/profile">Profile </a></li>
+            <% if (locals.auth?.accessType !== "Gamer") { %>
+                <li><a href="/user/all">User</a></li>
+            <% } %>
+            <% if (locals.auth?.accessType === "Admin") { %>
+              <li><a href="/user/access-requests">Access Requests</a></li>
+            <% } %>
+        </ul>
+      </nav>
+      <div class="main">
+        <header>
+          <h1>Gamer Management</h1>
+        </header>
+
+        <div class="welcome">
+            <% if (locals.auth?.accessType === "Gamer") { %>
+                <h3>Welcome Regular Access User</h3>
+            <% } %>
+
+            <% if (locals.auth?.accessType === "Host") { %>
+                <h3>Welcome Elevated Access User</h3>
+            <% } %>
+
+            <% if (locals.auth?.accessType === "Admin") { %>
+                <h3>Welcome Administrator</h3>
+            <% } %>
+        </div>
+      </div>
+      <a href="/user/logout" class="logout"><button>logout</button></a>
+    </div>
+  </body>
+</html>

@@ -1,62 +1,141 @@
 <!DOCTYPE html>
- <html>
- <head>
-     <link rel="stylesheet" href="css/mystyle.css">
- </head>
- <body style="background-color: rgba(162,196,201,255);">
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/mystyle.css" />
+  </head>
+  <body style="background-color: rgba(162, 196, 201, 255)">
+    <h1>GAMER MANAGEMENT</h1>
 
-     <h1>GAMER MANAGEMENT</h1>
-     <a href='welcome_admin.ejs' style="margin-left: 90em; margin-top: 10px;"><button>Log Out</button></a><br><br>
-     <form  action="/api/users" method="POST" id="add_user">
+    <% if (locals.errors) { %>
+    <div class="errors">
+      <% locals.errors.forEach(err => { %>
+      <p><%= err %></p>
+      <% }) %>
+    </div>
+    <% } %>
 
-         <div class="container">
-             <h2>ADD USER</h2>
-             <label><b>Email Address</b></label>
-             <input type="email" placeholder="Email Address" name="email" required><br>
+    <a href="/" style="margin-left: 90em; margin-top: 10px"
+      ><button>Log Out</button></a
+    ><br /><br />
+    <form action="/user/save-user" method="POST" id="add_user">
+      <div class="container">
+        <h2>ADD USER</h2>
+        <label><b>Email Address</b></label>
+        <input
+          type="email"
+          placeholder="Email Address"
+          name="email"
+          value="<%- locals.fields?.email %> "
+        /><br />
 
-             <label><b>Password</b></label>
-             <input type="password" placeholder="Password" name="psw" required><br>
+        <label><b>Password</b></label>
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+        /><br />
 
-             <label><b>First Name</b></label>
-             <input type="text" placeholder="First Name" name="fname" required><br>
+        <label><b>First Name</b></label>
+        <input
+          type="text"
+          placeholder="First Name"
+          name="firstName"
+          value="<%- locals.fields?.firstName %> "
+        /><br />
 
-             <label><b>Last Name</b></label>
-             <input type="text" placeholder="Last Name" name="lname" required><br>
+        <label><b>Last Name</b></label>
+        <input
+          type="text"
+          placeholder="Last Name"
+          name="lastName"
+          value="<%- locals.fields?.lastName %> "
+        /><br />
 
-             <label><b>Date of Birth</b></label>
-             <input type="date" placeholder="date of birth" name="dob" required><br>
+        <label><b>Date of Birth</b></label>
+        <input
+          type="date"
+          placeholder="date of birth"
+          name="dob"
+          value="<%- locals.fields?.dob %> "
+        /><br />
 
-             <label><b>Access Type</b></label>
-             <select style="width:392px; height: 1.1cm;" name="access_type">
-                 <option>Gamer</option>
-                 <option>Host</option>
-                 <option>Administrator</option>
-             </select><br>
+        <label><b>Access Type</b></label>
+        <select name="accessType" style="width: 392px; height: 1.1cm">
+            <option value="Gamer" 
+                <% if (locals.fields?.accessType === "Gamer") { %>
+                selected
+                <% } %> 
+            >Gamer</option>
+            <option value="Host"
+                <% if (locals.fields?.accessType === "Host") { %>
+                    selected
+                <% } %> 
+            >Host</option>
+            <option value="Admin"
+                <% if (locals.fields?.accessType === "Admin") { %>
+                    selected
+                <% } %> 
+            >Admin</option>
+        </select>
 
-             <label><b>Phone Number</b></label>
-             <input type="text" placeholder="Phone Number" name="phone" required><br>
+        <br />
 
-             <label><b>Department</b></label>
-             <select style="width:392px; height: 1.1cm;" name="department">
-                 <option>Real-Time Strategy</option>
-                 <option>Board Games</option>
-                 <option>Card Games</option>
-             </select><br>
+        <label><b>Phone Number</b></label>
+        <input
+          type="text"
+          placeholder="Phone Number"
+          name="phoneNumber"
+          value="<%- locals.fields?.phoneNumber %> "
+        /><br />
 
+        <label><b>Department</b></label>
+        <select name="department"  style="width: 392px; height: 1.1cm">
+            <option value="Real -Time Strategy" 
+                <% if (locals.fields?.department === "Real -Time Strategy") { %>
+                selected
+                <% } %> 
+            >Real -Time Strategy</option>
+            <option value="Technology"
+                <% if (locals.fields?.department === "Technology") { %>
+                    selected
+                <% } %> 
+            >Technology</option>
+            <option value="Board Game"
+                <% if (locals.fields?.department === "Board Game") { %>
+                    selected
+                <% } %> 
+            >Board Game</option>
+            <option value="Card Game"
+                <% if (locals.fields?.department === "Card Game") { %>
+                    selected
+                <% } %> 
+            >Card Game</option>
+            <option value="Arcade Game"
+                <% if (locals.fields?.department === "Arcade Game") { %>
+                    selected
+                <% } %> 
+            >Arcade Game</option>
+        </select>
+        
+        <br />
 
-             <label><b>Address</b></label>
-             <input type="text" placeholder="Address" name="address" required><br>
+        <label><b>Address</b></label>
+        <input
+          type="text"
+          placeholder="Address"
+          name="address"
+          value="<%- locals.fields?.address %> "
+        /><br />
+      </div>
 
-         </div>
+      <div class="container">
+        <button type="submit" class="submitbtn">Save</button>
+        <button type="button" class="submitbtn">
+          <a href="/user/all"> Cancel </a>
+        </button>
+      </div>
+    </form>
 
-         <div class="container">
-             <button type="Save" class="submitbtn">Save</button>
-             <button type="Cancel" class="submitbtn">Cancel</button>
-
-         </div>
-     </form>
-
-     <script src="script.js"></script>
- </body>
-
- </html>
+    <script src="/script.js"></script>
+  </body>
+</html>

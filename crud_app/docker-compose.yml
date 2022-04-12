@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    volumes:
+      - user_management_app:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+  user_management_app:
