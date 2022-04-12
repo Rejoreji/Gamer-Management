@@ -1,62 +1,111 @@
 <!DOCTYPE html>
- <html>
- <head>
-     <link rel="stylesheet" href="css/mystyle.css">
- </head>
- <body style="background-color: rgba(162,196,201,255);">
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/mystyle.css" />
+  </head>
+  <body style="background-color: rgba(162, 196, 201, 255)">
+    <h1>GAMER MANAGEMENT</h1>
+    <% if (locals.errors) { %>
+    <div class="errors">
+      <% locals.errors.forEach(err => { %>
+      <p><%= err %></p>
+      <% }) %>
+    </div>
+    <% } %>
 
-     <h1>GAMER MANAGEMENT</h1>
-     <a href='#' style="margin-left: 90em; margin-top: 10px;" action="LoginPage.html"><button>Log Out</button></a><br><br>
-     <form action="/api/users" method="POST" id="add_user">
+    <a
+      href="#"
+      style="margin-left: 90em; margin-top: 10px"
+      action="LoginPage.html"
+      ><button>Log Out</button></a
+    ><br /><br />
+    <form action="/auth/register" method="POST" id="add_user">
+      <div class="container">
+        <label for="mail"><b>Email Address</b></label>
+        <input type="hidden" name="id" value="" />
+        <input
+          type="email"
+          placeholder="Email Address"
+          name="email"
+          required
+          value="<%- locals.fields?.email %> "
+        /><br />
 
-         <div class="container">
+        <label for="password"><b>Password</b></label>
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          required
+        /><br />
 
-             <label for="mail"><b>Email Address</b></label>
-             <input type="hidden" name="id" value="">
-             <input type="email" placeholder="Email Address" name="email" required><br>
+        <!-- <div class="center">
+          <div id="captchaBackground">
+            <canvas id="captcha">captcha text</canvas>
+            <input
+              id="textBox"
+              type="text"
+              placeholder="Type the characters you see"
+              name="text"
+            />
+            <div id="buttons">
+              <input id="submitButton" type="submit" />
+              <button id="refreshButton" type="submit">Refresh</button>
+            </div>
+            <span id="output"></span>
+          </div>
+        </div> -->
 
-             <label for="psw"><b>Password</b></label>
-             <input type="password" placeholder="Password" name="psw" required><br>
+        <label for="confirmpassword"><b>Confirm Password</b></label>
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          name="passwordConfirmation"
+          required
+        /><br />
 
-                <div class="center">
+        <label for="fname"><b>First Name</b></label>
+        <input
+          type="text"
+          placeholder="First Name"
+          name="firstName"
+          required
+          value="<%- locals.fields?.firstName %> "
+        /><br />
 
-                    <div id="captchaBackground">
-                    <canvas id="captcha">captcha text</canvas>
-                    <input id="textBox" type="text" placeholder ="Type the characters you see" name="text">
-                    <div id="buttons">
-                    <input id="submitButton" type="submit">
-                    <button id="refreshButton" type="submit">Refresh</button>
-                    </div>
-                    <span id="output"></span>
-                    </div>
-                </div>
+        <label for="lname"><b>Last Name</b></label>
+        <input
+          type="text"
+          placeholder="Last Name"
+          name="lastName"
+          required
+          value="<%- locals.fields?.lastName %> "
+        /><br />
 
-             <label><b>Confirm Password</b></label>
-             <input type="password" placeholder="Confirm Password" name="psw1" required><br>
+        <label for="dob"><b>Date of Birth</b></label>
+        <input
+          type="date"
+          placeholder="date of birth"
+          name="dob"
+          required
+          value="<%- locals.fields?.dob %> "
+        /><br />
 
-             <label for="fname"><b>First Name</b></label>
-             <input type="text" placeholder="First Name" name="fname" required><br>
+        <label name="access_type" value="Gamer"></label>
+        <label name="phone" value=""></label>
+        <label name="department" value="NOT DEFINED"></label>
+        <label name="address" value=""></label>
+      </div>
 
-             <label for="lname"><b>Last Name</b></label>
-             <input type="text" placeholder="Last Name" name="lname" required><br>
+      <div class="container">
+        <button type="submit" class="submitbtn">Sign Up</button>
+      </div>
+      <a href="/auth/login" style="text-decoration: none; color: black"
+        >Already have an account?
+        <span style="color: rgb(43, 43, 43); font-weight: bold">Login</span></a
+      >
+    </form>
 
-             <label for="dob"><b>Date of Birth</b></label>
-             <input type="date" placeholder="date of birth" name="dob" required><br>
-
-             <label name="access_type" value="Gamer" ></label>
-             <label name="phone" value="" ></label>
-             <label name="department" value="NOT DEFINED" ></label>
-             <label name="address" value="" ></label>
-
-         </div>
-
-         <div class="container">
-             <button type="submit" class="submitbtn">Sign Up</button>
-
-         </div>
-     </form>
-
-     <script src="js/captcha.js"></script>
- </body>
-
- </html>
+    <script src="/js/captcha.js"></script>
+  </body>
+</html>

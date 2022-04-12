@@ -1,33 +1,49 @@
 <!DOCTYPE html>
- <html>
- <head>
-     <link rel="stylesheet" href="css/mystyle.css">
- </style>
- </head>
- <body style="background-color: rgba(162,196,201,255);">
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/mystyle.css" />
+  </head>
+  <body style="background-color: rgba(162, 196, 201, 255)">
+    <h1>GAMER MANAGEMENT</h1>
 
-     <h1>GAMER MANAGEMENT</h1>   
-     <form action="/login" method="post">
+    <% if (locals.errors) { %>
+    <div class="errors">
+      <% locals.errors.forEach(err => { %>
+      <p><%= err %></p>
+      <% }) %>
+    </div>
+    <% } %>
 
-         <div class="container">
-             <label><b>Username</b></label>
-             <input type="text" placeholder="Username" name="email" value="sample1@gmail.com" required><br>
+    <form action="/auth/login" method="post">
+      <div class="container">
+        <label><b>Email</b></label>
+        <input
+          type="email"
+          placeholder="Email"
+          name="email"
+          required
+          value="<%- locals.fields?.email %> "
+        /><br />
 
-             <label><b>Password</b></label>
-             <input type="password" placeholder="Password" name="password" value="rejo@gmail" required><br>
+        <label><b>Password</b></label>
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          required
+        /><br />
 
-             <input type="checkbox" checked="checked"> Remember me
+      </div>
 
-         </div>
-
-         <div class="container">
-             <button type="submit" class="submitbtn">Log In</button>
-             <button class="submitbtn"><a href="/" style="text-decoration: none; color: black;">Sign up</a></button> 
-             <span class="psw">Forgot <a href="#">password?</a></span>
-
-         </div>
-     </form>
-
- </body>
-
- </html>
+      <div class="container">
+        <button type="submit" class="submitbtn">Log In</button>
+        <button class="submitbtn">
+          <a href="/auth/register" style="text-decoration: none; color: black"
+            >Sign up</a
+          >
+        </button>
+        <span class="psw"><a href="#">forgot password?</a></span>
+      </div>
+    </form>
+  </body>
+</html>
