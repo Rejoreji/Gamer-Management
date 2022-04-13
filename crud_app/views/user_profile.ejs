@@ -58,7 +58,7 @@
                     <li><a href="/user/all">User</a></li>
                 <% } %>
                 <% if (locals.auth?.accessType === "Admin") { %>
-                    <li><a href="/user/access-requests-">Access Requests</a></li>
+                    <li><a href="/user/access-requests">Access Requests</a></li>
                 <% } %>
             </ul> 
         </nav>
@@ -86,7 +86,7 @@
             </h2><br>
         
             <form method="post" action="/user/profile/<%= locals.user?._id %> ">
-                <label>EMail Address</label>
+                <label>Email Address</label>
                 <input type="email" name="email" value="<%- locals.user?.email %> " readonly><br><br>
         
                 <label>Password</label>

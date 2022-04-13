@@ -82,3 +82,25 @@ nav{
 .errors p {
     color: tomato;
 }
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=date],
+input[type=tel]{
+    width: 25%;
+    padding: 10px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+select{
+   width: 25%;
+   padding: 10px 15px;
+   margin: 8px 0;
+   display: inline-block;
+   border: 1px solid #ccc;
+   box-sizing: border-box;
+}
